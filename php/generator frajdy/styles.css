@@ -1,0 +1,15 @@
+*{
+    margin:0;
+    padding: 0;
+}
+body{
+    margin-left: 35vw;
+    margin-top: 5vh;
+}
+div{
+    border:2px black solid;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    left:20px
+}
