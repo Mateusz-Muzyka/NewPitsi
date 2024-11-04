@@ -18,8 +18,8 @@
     $qwe = 0;
     $sql55 = "SELECT przedmioty FROM przedmioty";
     
-    if(isset($_GET['edycja']) == true || isset($_GET['zapisz']) == "save" ){
-        if($_GET['edycja'] == true || $_GET['zapisz'] == "save"){
+    if(isset($_GET['edycja']) == true || isset($_POST['zapisz']) == "save" ){
+        if($_GET['edycja'] == true || $_POST['zapisz'] == "save"){
             echo "<form method='POST'>";
             echo "<table border=1>";
             echo "<tr>";
@@ -47,10 +47,8 @@
                     echo "</select>"."</td>";
             }
                 echo "</tr>";
-                $qwe += 1;
             }
             echo "</table>";
-            echo $_POST['delir1'];
             echo '<button name="zapisz" type="submit" value="save">'."ZAPISZ".'</button>';
             echo "</form>";
         }}else if(isset($_GET['powrot']) == true)
@@ -87,13 +85,37 @@
 
 
 <?php 
-        
+        $mysqli = new mysqli("localhost","root","","plan_lekcji");
         echo "<div>";
         echo "<pre>";
-        print_r($_GET);
+        print_r($_POST);
         echo "</pre>";
         echo "</div>";
 
+        if(isset($_POST['zapisz']) == true){
+            if($_POST['zapisz'] == true){
+                for($i=0;$i<6;$i++){
+                    $a = $i+1;
+                    $b = $i+2;
+                    $c = $i+3;
+                    $d = $i+4;
+                    $Pn = $_POST["delir{$i}"];
+                    $Wt = $_POST["delir{$a}"];
+                    $Sr = $_POST["delir{$b}"];
+                    $Czw = $_POST["delir{$c}"];
+                    $Pt = $_POST["delir{$d}"];
+                     $sql3 = "UPDATE plan SET Poniedzialek = '{$Pn}',Wtorek = '{$Wt}',Sroda = '{$Sr}',Czwartek = '{$Czw}',Piatek = '{$Pt}' WHERE id={$i}";
+                    
+                    if ($mysqli->query($sql3) === TRUE) {
+                        echo "Record updated successfully";
+                        echo "<br>";
+                      } else {
+                        echo "Error updating record: " . $mysqli->error;
+                      }
+                }
+            }
+    
+        }
         ?>
 </body>
 </html>
