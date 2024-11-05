@@ -1,0 +1,23 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#kontener{
+    width: 45vw;
+    border:1px black solid;
+    background-color: grey;
+    text-align: center;
+    margin: auto;
+    margin-top: 20vh;
+    padding: 20vh 0;
+}
+#kontq{
+    width: 45vw;
+    border:1px black solid;
+    background-color: grey;
+    text-align: center;
+    margin: auto;
+    margin-top: 20vh;
+    padding: 20vh 0;
+}
