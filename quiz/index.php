@@ -23,7 +23,7 @@ session_start();
     <?php 
         if(isset($_GET['Play'])){
             if($_GET['Play'] == true){
-                header("Location: quiz.php");
+                header("Location: pytania/quiz.php");
             }
         }
         if(isset($_GET['Editor'])){
@@ -34,6 +34,7 @@ session_start();
 
         $_SESSION["poprawnie"] = 0;
         $_SESSION["bledy"] = 0;
+        $_SESSION["numer_pytania"] = 0;
     ?>
 </body>
 </html>
