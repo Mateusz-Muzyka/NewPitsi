@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Czas generowania: 05 Lis 2024, 10:34
--- Wersja serwera: 10.4.20-MariaDB
--- Wersja PHP: 8.0.9
+-- Generation Time: Lis 06, 2024 at 11:32 AM
+-- Wersja serwera: 10.4.32-MariaDB
+-- Wersja PHP: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Baza danych: `quiz`
+-- Database: `quiz`
 --
 
 -- --------------------------------------------------------
@@ -34,14 +34,17 @@ CREATE TABLE `kontent` (
   `odpZ2` text NOT NULL,
   `odpZ3` text NOT NULL,
   `odpG` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Zrzut danych tabeli `kontent`
+-- Dumping data for table `kontent`
 --
 
 INSERT INTO `kontent` (`id`, `pytanie`, `odpZ`, `odpZ2`, `odpZ3`, `odpG`) VALUES
-(1, 'Jaki kolor ma gruszka?', 'Czerwony', 'Zolty', 'Pomaranczowy', 'Zielony');
+(1, 'Jaki kolor ma gruszka?', 'Czerwony', 'Zolty', 'Pomaranczowy', 'Zielony'),
+(3, 'Gdzie znajduje sie tzw. Spodek?', 'Krakow', 'Warszawa', 'Gdansk', 'Katowice'),
+(6, 'jaki kolor ma mars?', 'Zielony', 'Niebieski', 'Bialy', 'Czerwony'),
+(7, 'najlepsza marka komputerowa', 'asus', 'acer', 'LG', 'Dell');
 
 -- --------------------------------------------------------
 
@@ -53,7 +56,15 @@ CREATE TABLE `wyniki` (
   `id` tinyint(4) NOT NULL,
   `gracz` text NOT NULL,
   `wynik` tinyint(4) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `wyniki`
+--
+
+INSERT INTO `wyniki` (`id`, `gracz`, `wynik`) VALUES
+(1, 'nazaer', 2),
+(2, 'qwer', 3);
 
 --
 -- Indeksy dla zrzutów tabel
@@ -72,20 +83,20 @@ ALTER TABLE `wyniki`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT dla zrzuconych tabel
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT dla tabeli `kontent`
+-- AUTO_INCREMENT for table `kontent`
 --
 ALTER TABLE `kontent`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT dla tabeli `wyniki`
+-- AUTO_INCREMENT for table `wyniki`
 --
 ALTER TABLE `wyniki`
-  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` tinyint(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
