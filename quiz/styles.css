@@ -21,3 +21,8 @@
     margin-top: 20vh;
     padding: 20vh 0;
 }
+
+#jolo{
+    left: 50%;
+    position: relative;
+}

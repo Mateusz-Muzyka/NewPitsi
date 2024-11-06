@@ -16,7 +16,8 @@ session_start();
         echo "<form method='GET'>";
         echo '<div id="kontener">';
         $liczba = $_SESSION["poprawnie"]+$_SESSION["bledy"];
-        echo "TWÓJ WYNIK TO: ".$_SESSION["poprawnie"]."/".$liczba;
+        $_SESSION['wynik'] = $_SESSION["poprawnie"]."/".$liczba;
+        echo "TWÓJ WYNIK TO: ".$_SESSION['wynik']  ;
         echo "<br>";
         echo '<button name="Leaderboard" value="LB">TABLICA WYNIKÓW</button>';
         echo '<button name="reset" value="R">ZACZNIJ OD NOWA</button>';
@@ -24,8 +25,10 @@ session_start();
         echo '</form>';
 
         if(isset($_GET['Leaderboard'])){
-            if($_GET['reset'] == true){
+            if($_GET['Leaderboard'] == true){
                 header("Location: leaderboard.php");
+                $_SESSION['poprawnie'] = 0;
+                $_SESSION['bledy'] = 0;
             }
         }
         if(isset($_GET['reset'])){
@@ -33,6 +36,7 @@ session_start();
                 header("Location: index.php");
             }
         }
+
     ?>
 </body>
 </html>
