@@ -26,8 +26,7 @@ session_start();
 
         if(isset($_GET['Leaderboard'])){
             if($_GET['Leaderboard'] == true){
-                header("Location: leaderboard.php");
-                $_SESSION['poprawnie'] = 0;
+                header("Location: pre-leaderboard.php");
                 $_SESSION['bledy'] = 0;
             }
         }

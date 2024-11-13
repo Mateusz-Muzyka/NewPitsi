@@ -16,6 +16,11 @@ session_start();
     <button name="back" value="back">Powrót</button>
         <div id="kontq">
             <input name="Question"></input>
+
+            <div id="Gerwazy">
+                <input type="radio" name="odp" value="">
+                <label for=""><input name="lab1"/></label>
+            </div>
         </div>
     </form>
 

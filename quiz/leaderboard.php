@@ -19,9 +19,13 @@ session_start();
         echo "TWÓJ WYNIK TO: ".$_SESSION['wynik'];
         echo "<br>";
         echo "<table border=3>";
-        $sql = "SELECT * FROM wyniki";
+        $sql = "SELECT * FROM wyniki ORDER BY sorter DESC";
         $reasult = $mysqli->query($sql);
-        for($i=0;$i<3;$i++){
+        $PlayerCounter = "SELECT COUNT(*) FROM wyniki";
+        $reasultPC = $mysqli->query($PlayerCounter);
+        $row10 = $reasultPC->fetch_row();
+        
+        for($i=0;$i<$row10[0]+1;$i++){
             if($i != 0)
                 $row = $reasult->fetch_row();
             echo "<tr>";
