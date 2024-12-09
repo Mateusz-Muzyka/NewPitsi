@@ -78,7 +78,7 @@ session_start();
                         $_SESSION["bledy"] = $_SESSION["bledy"] + 1; 
                     }
                     $_SESSION["numer_pytania"] += 1;
-                    header("Location: pytanie5.php");
+                    header("Location: pytanie7.php");
             }
         }
 
