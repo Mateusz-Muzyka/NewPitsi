@@ -28,7 +28,7 @@ session_start();
         }
         if(isset($_GET['Editor'])){
             if($_GET['Editor'] == true){
-                header("Location: editor.php");
+                header("Location: Wybor.php");
             }
         }
 
