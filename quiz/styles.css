@@ -9,6 +9,8 @@
     background-color: grey;
     text-align: center;
     margin: auto;
+    border-radius: 5%;
+    box-shadow: 10px 5px 5px rgb(54, 54, 54);
     margin-top: 20vh;
     padding: 20vh 0;
 }
@@ -16,8 +18,10 @@
     width: 45vw;
     border:1px black solid;
     background-color: grey;
+    box-shadow: 10px 5px 5px rgb(54, 54, 54);
     text-align: center;
     margin: auto;
+    border-radius: 5%;
     margin-top: 20vh;
     padding: 20vh 0;
 }
