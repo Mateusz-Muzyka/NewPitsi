@@ -56,7 +56,6 @@ session_start();
             echo "</div>";
             echo "</div>";
 
-        echo $_GET['odp'];
         echo "<br>";
         if(isset($_GET['next'])){
             if($_GET['next'] == true){

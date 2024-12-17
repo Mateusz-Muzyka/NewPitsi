@@ -13,10 +13,10 @@ session_start();
     
 
 <form method="GET">
-    <button name="back" value="back">Powrót</button>
+    <button name="back" value="qqq">Powrót</button>
         <div id="kontq">
             <h2>Proszę podać Pytanie</h2>
-            <input name="Question"></input>
+            <input name="pytanie"></input>
 
             <div id="Gerwazy">
                 <h2>Prosze podać odpowiedzi błędne</h2>
@@ -32,18 +32,33 @@ session_start();
 
 
 <?php 
-        $mysqli = new mysqli("localhost","root","","quiz");
-        if(isset($_GET['back'])){
-            if($_GET['back'] == true){
-                header("Location: index.php");
-            }
-        }
-        if(isset($_GET['Question'])){
-            if($_GET['Question'] == true){
-                echo $_GET['Question'];
+        $con = new mysqli("localhost","root","","quiz");
+        if(isset($_GET['pytanie'])){
+            if($_GET['pytanie'] == true){
+                $pytanie = $_GET['pytanie'];
+                $Z1 = $_GET['lab1'];    
+                $Z2 = $_GET['lab2'];   
+                $Z3 = $_GET['lab3'];
+                $G = $_GET['labY'];  
+                $sql = "INSERT INTO kontent (pytanie,odpZ,odpZ2,odpZ3,odpG) VALUES ('$pytanie','$Z1','$Z2','$Z3','$G')";
+                $result = $con->query($sql);
+                
+                
             }
         }
         
+        ?>
+        <?php 
+    echo "<div>";
+    echo "<pre>";
+    print_r($_GET);
+    echo "</pre>";
+    echo "</div>";
+    if(isset($_GET['back'])){
+        if($_GET['back'] == true){
+            header("Location: index.php");
+        }
+    }
     ?>
 </body>
 </html>
