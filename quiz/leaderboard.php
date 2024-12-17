@@ -18,7 +18,7 @@ session_start();
         echo '<div id="kontener">';
         echo "TWÓJ WYNIK TO: ".$_SESSION['wynik'];
         echo "<br>";
-        echo "<table border=3>";
+        echo "<table id='tablicaWyn' border=3>";
         $sql = "SELECT * FROM wyniki ORDER BY sorter DESC";
         $reasult = $mysqli->query($sql);
         $PlayerCounter = "SELECT COUNT(*) FROM wyniki";
@@ -38,7 +38,7 @@ session_start();
             echo "</tr>";
         }
         echo "</table>";
-        echo '<button name="reset" value="R">ZACZNIJ OD NOWA</button>';
+        echo '<button id="butter" name="reset" value="R">ZACZNIJ OD NOWA</button>';
         echo '</div>';
         echo '</form>';
 

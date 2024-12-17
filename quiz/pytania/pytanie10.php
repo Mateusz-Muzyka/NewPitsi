@@ -38,7 +38,7 @@ session_start();
             echo "<form method='GET'>";
             echo "<div id='kontq'>";
             echo "<h3>".$row[1]."</h3>";
-            echo "<h3>".$_SESSION["numer_pytania"]."</h3>"; 
+           
             echo "<div>";
             echo "<li>";
             echo "<input type='radio' id='p1' name='odp' value='{$row[5]}'>";

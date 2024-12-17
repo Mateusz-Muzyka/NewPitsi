@@ -1,8 +1,12 @@
 *{
     margin: 0;
     padding: 0;
+    
 }
-
+body{
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(253,29,29,1) 50%, rgba(252,176,69,1) 100%);
+}
 #kontener{
     width: 45vw;
     border:1px black solid;
@@ -13,6 +17,8 @@
     box-shadow: 10px 5px 5px rgb(54, 54, 54);
     margin-top: 20vh;
     padding: 20vh 0;
+    text-decoration: none;
+    text-align: center;
 }
 #kontq{
     width: 45vw;
@@ -24,6 +30,8 @@
     border-radius: 5%;
     margin-top: 20vh;
     padding: 20vh 0;
+    text-decoration: none;
+    
 }
 
 #jolo{
@@ -34,4 +42,20 @@
 #Gerwazy{
     top:-50px;
     height: 100%;
+}
+
+li{
+    text-decoration: none;
+    text-align: left;
+    margin-left: 38%;
+}
+
+#tablicaWyn{
+    margin-left: 50%;
+    transform: translate(-50%, 0);
+}
+
+#butter{
+    margin-right: 350px;
+    
 }

@@ -13,7 +13,7 @@ session_start();
 <body>
     <form method="GET">
         <div id="kontener">
-            SUPER QUIZ
+            SUPER QUIZ O INFORMATYCZNYCH ZAGADNIENIACH
             <br>
             <button name="Play" value="Playing" type="submit">Zagraj w Quiz</button>
             <button name="Editor" value="Edit" type="submit">Przejdź do edytora</button>
