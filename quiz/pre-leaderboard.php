@@ -23,7 +23,7 @@ session_start();
 
         if(isset($_GET['nick'])){
             if($_GET['nick'] != ""){
-                $mysqli = new mysqli("localhost","root","","quiz");
+                $con = new mysqli("localhost","root","","quiz");
                 $tymczas = $_GET['nick'];
                 $tymczas2 = $_SESSION['wynik'];
                 $tymczas3 = $_SESSION['poprawnie'];

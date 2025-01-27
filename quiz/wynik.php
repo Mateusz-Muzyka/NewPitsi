@@ -15,17 +15,17 @@ session_start();
 
         echo "<form method='GET'>";
         echo '<div id="kontener">';
-        $liczba = $_SESSION["poprawnie"]+$_SESSION["bledy"];
-        $_SESSION['wynik'] = $_SESSION["poprawnie"]."/".$liczba;
+        $liczba = $_SESSION["dobrze"]+$_SESSION["zle"];
+        $_SESSION['wynik'] = $_SESSION["dobrze"]."/".$liczba;
         echo "TWÓJ WYNIK TO: ".$_SESSION['wynik']  ;
         echo "<br>";
-        echo '<button name="Leaderboard" value="LB">TABLICA WYNIKÓW</button>';
+        echo '<button name="TblWynikow" value="LB">TABLICA WYNIKÓW</button>';
         echo '<button name="reset" value="R">ZACZNIJ OD NOWA</button>';
         echo '</div>';
         echo '</form>';
 
-        if(isset($_GET['Leaderboard'])){
-            if($_GET['Leaderboard'] == true){
+        if(isset($_GET['TblWynikow'])){
+            if($_GET['TblWynikow'] == true){
                 header("Location: pre-leaderboard.php");
                 $_SESSION['bledy'] = 0;
             }
