@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #gitgut{
+            background-color:rgba(15, 193, 11, 0.52);
+        }
+    </style>
 </head>
 <body>
-    <p>działa</p>
+    <!-- <p>działa</p> -->
     <?php 
         $pytania = [];
         $odpowiedzi = [];
@@ -29,17 +34,37 @@
             // echo "y=".$y;
             if($i > 0)
             {
-                echo "<textarea>";
-                echo substr($qqq[$i],$x,$y);
-                echo "</textarea>";
+                // echo "<textarea>";
+                // echo substr($qqq[$i],$x,$y);
+                // echo "</textarea>";
                 $pytania[] = substr($qqq[$i],$x,$y);
             }
             
         }
+    
         echo "<hr>";
         echo "<hr>";
         $qqq2 = explode('class="odpgood">',$data);
         $qqq3 = explode('<div id="odpa',$data);
+        $inter = 0;
+        for($i = 0; $i<count($qqq2);$i++){
+            
+            $x = strpos($qqq2[$i], '.');
+            $y = strpos($qqq2[$i], '</div>');
+            $x = $x + 2;
+            $y = $y;
+            $z = $y - $x;
+
+            if($i > 0)
+         {   
+                $odpowiedzi[] = substr($qqq2[$i],$x,$z);
+            }}
+
+            for($i = 0; $i<count($odpowiedzi);$i++){
+                $posS = strpos($odpowiedzi[$i],">");
+                $posE = strlen($odpowiedzi[$i]) - $posS;
+                $odpowiedzi[$i] = substr($odpowiedzi[$i], $posS+1, $posE); 
+            } 
         for($i = 0; $i<count($qqq2);$i++){
             
             $x = strpos($qqq2[$i], '.');
@@ -50,12 +75,8 @@
 
             if($i > 0)
          {
-                // echo "<textarea>";
-                // echo substr($qqq2[$i],$x,$z);
-                // echo "</textarea>";
-                $odpowiedzi[] = substr($qqq2[$i],$x,$z);
                 
-                // echo substr($qqq2[$i],$x,$z);
+             
   
                 $xT = strpos($qqq3[$i], 'A.');
                 $yT = strpos($qqq3[$i],'id="odpb');
@@ -68,29 +89,73 @@
                 
                 $xT3 = strpos($qqq3[$i], 'C.');
                 $yT3 = strpos($qqq3[$i],'id="odpd');
-                // $q3 = substr($qqq3[$i],$xT+3,$zT);
+               
 
                 $zT3 = $yT3 - $xT3;
                 
                 $xT4 = strpos($qqq3[$i], 'D.');
                 $yT4 = strpos($qqq3[$i],' class="sep">');
                 $zT4 = $yT4 - $xT4;
-echo '<textarea>';
-echo '<li id="good">'.substr($qqq2[$i],$x,$z). '<li>';
-echo '<li>'.substr($qqq3[$i],$xT+3,$zT).'</li>';
-echo '</textarea>';
+if($i < 40){
 echo $pytania[$i-1];
                 echo '<section id="qqq">';
                     echo '<ol type="A">';
-
-                        echo '<li>'.substr($qqq3[$i],$xT+3,$zT).'</li>';
-                        echo '<li>'.substr($qqq3[$i],$xT2+3,$zT2).'</li>';
-                        echo '<li>'.substr($qqq3[$i],$xT3+3,$zT3).'</li>';
-                        echo '<li>'.substr($qqq3[$i],$xT4+3,$zT4).'</li>';
-                
+                        if(strpos(substr($qqq3[$i],$xT+3,$zT),$odpowiedzi[$inter]))
+                            echo '<li id="gitgut">'.substr($qqq3[$i],$xT+3,$zT).'</li>';
+                        else
+                            echo '<li>'.substr($qqq3[$i],$xT+3,$zT).'</li>';
+                        if(strpos(substr($qqq3[$i],$xT2+3,$zT2),$odpowiedzi[$inter]))
+                            echo '<li id="gitgut">'.substr($qqq3[$i],$xT2+3,$zT2).'</li>';
+                        else
+                            echo '<li>'.substr($qqq3[$i],$xT2+3,$zT2).'</li>';
+                        if(strpos(substr($qqq3[$i],$xT3+3,$zT3),$odpowiedzi[$inter]))    
+                            echo '<li id="gitgut">'.substr($qqq3[$i],$xT3+3,$zT3).'</li>';
+                        else
+                            echo '<li>'.substr($qqq3[$i],$xT3+3,$zT3).'</li>';
+                        if(strpos(substr($qqq3[$i],$xT4+3,$zT4),$odpowiedzi[$inter]))
+                            echo '<li id="gitgut">'.substr($qqq3[$i],$xT4+3,$zT4).'</li>';
+                        else
+                            echo '<li>'.substr($qqq3[$i],$xT4+3,$zT4).'</li>';
                 echo '</ol>';
                 echo '</section>';
+         }
+                if($i == 40){
+                    echo $pytania[$i-1];
+                    echo '<section id="qqq">';
+                        echo '<ol type="A">';
+                            if(strpos(substr($qqq3[$i],$xT+3,$zT),$odpowiedzi[$inter]))
+                                echo '<li id="gitgut">'.substr($qqq3[$i],$xT+3,$zT).'</li>';
+                            else
+                                echo '<li>'.substr($qqq3[$i],$xT+3,$zT).'</li>';
+                            if(strpos(substr($qqq3[$i],$xT2+3,$zT2),$odpowiedzi[$inter]))
+                                echo '<li id="gitgut">'.substr($qqq3[$i],$xT2+3,$zT2).'</li>';
+                            else
+                                echo '<li>'.substr($qqq3[$i],$xT2+3,$zT2).'</li>';
+                            if(strpos(substr($qqq3[$i],$xT3+3,$zT3),$odpowiedzi[$inter]))    
+                                echo '<li id="gitgut">'.substr($qqq3[$i],$xT3+3,$zT3).'</li>';
+                            else
+                                echo '<li>'.substr($qqq3[$i],$xT3+3,$zT3).'</li>';
+
+                                
+                                
+                                $ender = strpos(substr($qqq3[$i],$xT4+3,$zT4),'id="side"');
+                                $test = substr($qqq3[$i],$xT4+3,$zT4);
+                                $test = substr($test,0,$ender);
+                                
+                            if(strpos(substr($qqq3[$i],$xT4+3,$zT4),$odpowiedzi[$inter]))
+                                echo '<li id="gitgut">'.$test.'</li>';
+                            else
+                                echo '<li>'.$test.'</li>';
+                    echo '</ol>';
+                    echo '</section>';
+                }
+                // echo "<textarea>";
+                // echo $odpowiedzi[$inter];
+                // echo "</textarea>";
+
+                $inter += 1;
             }
+           
         }
         echo "<hr>";
         echo "<hr>";
